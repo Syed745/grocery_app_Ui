@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_shop/constant/color.dart';
 import 'package:grocery_shop/constant/widget/createStartPage.dart';
 
 class GetStart extends StatefulWidget {
@@ -7,6 +8,8 @@ class GetStart extends StatefulWidget {
   @override
   State<GetStart> createState() => _GetStartState();
 }
+
+var currentPage = 0;
 
 class _GetStartState extends State<GetStart> {
   PageController controller = PageController();
@@ -36,7 +39,39 @@ class _GetStartState extends State<GetStart> {
             ],
           )
         ],
+        onPageChanged: (index) {
+          setState(() {
+            currentPage = index;
+          });
+        },
       ),
     );
   }
+}
+
+Widget row() {
+  return Row(
+    children: [
+      currentPage == 0
+          ? const Icon(
+              Icons.horizontal_rule_sharp,
+              color: headingColor,
+              size: 50,
+            )
+          : const Icon(
+              Icons.horizontal_rule_outlined,
+              color: paragraphColor,
+            ),
+      currentPage == 1
+          ? const Icon(
+              Icons.horizontal_rule_sharp,
+              color: headingColor,
+              size: 50,
+            )
+          : const Icon(
+              Icons.horizontal_rule_outlined,
+              color: paragraphColor,
+            ),
+    ],
+  );
 }

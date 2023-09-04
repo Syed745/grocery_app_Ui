@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_shop/constant/color.dart';
 import 'package:grocery_shop/constant/widget/bottomTabBAr.dart';
+import 'package:grocery_shop/screens/getStartScreen/getStart.dart';
 
 class CreateStartPage extends StatelessWidget {
   final hStr;
@@ -111,33 +112,4 @@ class CreateStartPage extends StatelessWidget {
       ),
     );
   }
-}
-
-var currentPage = 0;
-
-Widget row() {
-  return Row(
-    children: [
-      currentPage == 0
-          ? const Icon(
-              Icons.horizontal_rule_sharp,
-              color: headingColor,
-              size: 50,
-            )
-          : const Icon(
-              Icons.horizontal_rule_outlined,
-              color: paragraphColor,
-            ),
-      currentPage == 1
-          ? const Icon(
-              Icons.horizontal_rule_sharp,
-              color: headingColor,
-              size: 50,
-            )
-          : const Icon(
-              Icons.horizontal_rule_outlined,
-              color: paragraphColor,
-            ),
-    ],
-  );
 }

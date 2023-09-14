@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_shop/constant/color.dart';
+import 'package:grocery_shop/screens/category/categoryscreendata.dart';
+import 'package:grocery_shop/screens/categoryScreen.dart';
 import 'package:grocery_shop/screens/getStartScreen/groceryHome.dart';
 
 class BottomTabs extends StatefulWidget {
@@ -11,6 +13,7 @@ class BottomTabs extends StatefulWidget {
 
 class _BottomTabsState extends State<BottomTabs> {
   int currentIndex = 0;
+  final screen = [GroceryHome(), CategoryPage(), FinalScreen(), CategoryPage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +58,7 @@ class _BottomTabsState extends State<BottomTabs> {
                 ),
                 label: 'More'),
           ]),
-      body: GroceryHome(),
+      body: IndexedStack(index: currentIndex, children: screen),
     );
   }
 }

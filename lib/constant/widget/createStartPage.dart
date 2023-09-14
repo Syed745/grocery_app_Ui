@@ -85,11 +85,11 @@ class CreateStartPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => BottomTabs(),
+                                builder: (context) => const BottomTabs(),
                               ),
                             );
                           },
-                          child: Text(
+                          child: const Text(
                             'Get Started',
                             style: TextStyle(
                               fontSize: 25,

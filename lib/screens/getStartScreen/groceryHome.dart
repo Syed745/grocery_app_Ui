@@ -1,38 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_shop/constant/color.dart';
 import 'package:grocery_shop/constant/widget/customCard.dart';
+import 'package:grocery_shop/constant/widget/sale_carts.dart';
+import 'package:grocery_shop/screens/cart/cart_product.dart';
 
 class GroceryHome extends StatelessWidget {
-  const GroceryHome({super.key});
+  const GroceryHome({
+    Key? key,
+  }) : super(
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context) {
-    String dropdownVal = 'String';
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Column(
-          children: [
-            Expanded(
-              flex: 3,
-              child: Container(
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final screenHeight = MediaQuery.of(context).size.height;
+
+          return Column(
+            children: [
+              Container(
+                height: screenHeight * 0.3,
                 color: backGroundColor,
                 child: ListView(
                   children: [
                     ListTile(
                       title: const Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 35),
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                         child: Text(
                           'Hey, Bilal',
                           style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w600,
-                              color: headingColor),
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                            color: headingColor,
+                          ),
                         ),
                       ),
                       trailing: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CartPage(),
+                            ),
+                          );
+                        },
                         icon: const Icon(
                           Icons.shopping_bag_outlined,
                           color: headingColor,
@@ -40,7 +55,8 @@ class GroceryHome extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      padding:
+                          const EdgeInsets.only(top: 25, left: 15, right: 15),
                       child: TextField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -88,13 +104,40 @@ class GroceryHome extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
-            Expanded(
-              flex: 6,
-              child: GroceryListPage(),
-            )
-          ],
-        ),
+              const Expanded(
+                flex: 3,
+                child: SaleCart(),
+              ),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    'Recommended',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+              ),
+              const Expanded(
+                flex: 4,
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: GroceryListPage(),
+                ),
+              ),
+              const Expanded(
+                flex: 4,
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: GroceryListPage(),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_shop/constant/color.dart';
 import 'package:grocery_shop/constant/widget/groceryCard.dart';
 import 'package:grocery_shop/model/groceryItem.dart';
+import 'package:grocery_shop/screens/cart/cartDetail.dart';
 
 class GroceryListPage extends StatelessWidget {
   const GroceryListPage({
@@ -21,18 +22,10 @@ class GroceryListPage extends StatelessWidget {
           final item = groceryItems[index];
           return InkWell(
             onTap: () {
-              Navigator.of(context).push(
+              Navigator.push(
+                context,
                 MaterialPageRoute(
-                  builder: (context) => SizedBox(
-                    width: 500,
-                    height: 500,
-                    child: GroceryCard(
-                      imagePath: item.imagePath,
-                      itemName: item.name,
-                      itemPrice: item.price,
-                      //  itemIcon: item.itemIcon != null ? item.itemIcon : null,
-                    ),
-                  ),
+                  builder: (context) => const ShoppingCartDetail(),
                 ),
               );
             },

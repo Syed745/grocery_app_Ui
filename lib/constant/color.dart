@@ -9,5 +9,5 @@ const Color searchBox = Color(0xff142f74);
 const Color bodyBack = Colors.white;
 const Color cardBody = Color(0xfff7f8fa);
 const Color blackSet = Color.fromARGB(255, 17, 20, 25);
-const Color shoppingBag = Color(0xffe9c46a);
+const Color shoppingBag = Color(0xffF9B023);
 const Color addtocartbottom = Color(0xffe0e1dd);

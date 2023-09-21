@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_shop/constant/color.dart';
+import 'package:grocery_shop/screens/addreessScreen.dart';
 
 class ShoppingCartDetail extends StatefulWidget {
   const ShoppingCartDetail({super.key});
@@ -16,7 +17,7 @@ class _ShoppingCartDetailState extends State<ShoppingCartDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Orange',
           style: TextStyle(color: blackSet),
         ),
@@ -73,14 +74,14 @@ class _ShoppingCartDetailState extends State<ShoppingCartDetail> {
               height: 549,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Color(0xfff7f8fa),
+                color: const Color(0xfff7f8fa),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "The Choose Top \nOrange",
                       style: TextStyle(
                         fontSize: 20,
@@ -90,7 +91,7 @@ class _ShoppingCartDetailState extends State<ShoppingCartDetail> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           "\$34.70/KG",
                           style: TextStyle(
                             fontSize: 16,
@@ -99,9 +100,9 @@ class _ShoppingCartDetailState extends State<ShoppingCartDetail> {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                              color: Color(0xff2A4BA0),
+                              color: backGroundColor,
                               borderRadius: BorderRadius.circular(20)),
-                          child: Padding(
+                          child: const Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text("\$22.04 OFF",
                                 style: TextStyle(
@@ -111,7 +112,7 @@ class _ShoppingCartDetailState extends State<ShoppingCartDetail> {
                                 )),
                           ),
                         ),
-                        Padding(
+                        const Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text("Reg: \$56.70 USD",
                               style: TextStyle(
@@ -121,8 +122,8 @@ class _ShoppingCartDetailState extends State<ShoppingCartDetail> {
                         )
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(
+                    const Padding(
+                      padding: EdgeInsets.only(
                         top: 20,
                         bottom: 20,
                       ),
@@ -130,23 +131,23 @@ class _ShoppingCartDetailState extends State<ShoppingCartDetail> {
                         children: [
                           Icon(
                             Icons.star_sharp,
-                            color: Color(0xffF9B023),
+                            color: shoppingBag,
                           ),
                           Icon(
                             Icons.star_sharp,
-                            color: Color(0xffF9B023),
+                            color: shoppingBag,
                           ),
                           Icon(
                             Icons.star_sharp,
-                            color: Color(0xffF9B023),
+                            color: shoppingBag,
                           ),
                           Icon(
                             Icons.star_sharp,
-                            color: Color(0xffF9B023),
+                            color: shoppingBag,
                           ),
                           Icon(
                             Icons.star_half_sharp,
-                            color: Color(0xffF9B023),
+                            color: shoppingBag,
                           ),
                           Text(
                             "110 Reviews",
@@ -159,11 +160,11 @@ class _ShoppingCartDetailState extends State<ShoppingCartDetail> {
                         ],
                       ),
                     ),
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
+                          padding: EdgeInsets.only(bottom: 8.0),
                           child: Text(
                             "Details",
                             style: TextStyle(
@@ -182,8 +183,8 @@ class _ShoppingCartDetailState extends State<ShoppingCartDetail> {
                         )
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20, bottom: 15),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 20, bottom: 15),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -199,12 +200,12 @@ class _ShoppingCartDetailState extends State<ShoppingCartDetail> {
                       ),
                     ),
                     Container(
-                      color: Color(0xffB2BBCE),
+                      color: paragraphColor,
                       width: 327,
                       height: 1,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15, bottom: 15),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 15, bottom: 15),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -226,14 +227,15 @@ class _ShoppingCartDetailState extends State<ShoppingCartDetail> {
                           width: 143,
                           height: 56,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(color: Color(0xff2A4BA0))),
-                          child: Center(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: backGroundColor),
+                          ),
+                          child: const Center(
                             child: Text("Add To Cart",
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w600,
-                                    color: Color(0xff2A4BA0))),
+                                    color: backGroundColor)),
                           ),
                         ),
                         Container(
@@ -241,14 +243,24 @@ class _ShoppingCartDetailState extends State<ShoppingCartDetail> {
                           height: 56,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Color(0xff2a4ba0),
+                            color: backGroundColor,
                           ),
                           child: Center(
-                            child: Text("Add To Cart",
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white)),
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => AddressScreen(),
+                                  ),
+                                );
+                              },
+                              child: Text("Buy Now",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white)),
+                            ),
                           ),
                         ),
                       ],
@@ -270,7 +282,7 @@ Widget row() {
       currentPage == 0
           ? const Icon(
               Icons.horizontal_rule_sharp,
-              color: Color(0xffF9B023),
+              color: shoppingBag,
               size: 30,
             )
           : const Icon(
@@ -280,7 +292,7 @@ Widget row() {
       currentPage == 1
           ? const Icon(
               Icons.horizontal_rule_sharp,
-              color: Color(0xffF9B023),
+              color: shoppingBag,
               size: 30,
             )
           : const Icon(

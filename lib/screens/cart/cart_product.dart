@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_shop/constant/color.dart';
 import 'package:grocery_shop/model/product_cart.dart';
+import 'package:grocery_shop/screens/addreessScreen.dart';
 import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
@@ -48,7 +49,7 @@ class CartPage extends StatelessWidget {
             child: Container(
               width: containerWidth,
               height: 4,
-              color: const Color(0xffff9f1c),
+              color: shoppingBag,
               child: const Center(
                 child: Text("Use code #HalalFood at Checkout",
                     style: TextStyle(
@@ -114,8 +115,11 @@ class CartPage extends StatelessWidget {
                 color: backGroundColor,
               ),
               child: TextButton(
-                onPressed: () {},
-                child: Text(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AddressScreen()));
+                },
+                child: const Text(
                   "Proceed To checkout",
                   style: TextStyle(color: headingColor),
                 ),
